@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet — Dispositif de transmission Wi-Fi — Louis Leibrich</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#projects" class="back-link">← Tous les projets</a>
+            <div class="detail-badges">
+                <span class="sae-badge">Projet</span>
+                <span class="detail-context">IUT de Colmar · BUT1</span>
+            </div>
+            <h1 class="detail-title">Dispositif de <span class="highlight">transmission Wi-Fi</span></h1>
+            <p class="detail-lede">Projet d'infrastructure complet, du câblage cuivre physique jusqu'à l'audit de couverture radio.</p>
+            <div class="comp-tags"><span class="comp-tag t2">AC12.01</span><span class="comp-tag t2">AC12.03</span><span class="comp-tag t1">AC11.03</span></div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Contexte & objectifs</h2>
+                <div class="detail-prose">
+                    <p>Ce projet couvrait toute la chaîne d'un déploiement réseau, de la mise en place de l'infrastructure physique jusqu'à l'optimisation de la couverture radio. À partir du matériel fourni, notre première mission a consisté à réaliser le <strong>câblage cuivre</strong> et à raccorder les équipements actifs dans les règles de l'art.</p>
+                    <p>La seconde phase du projet était axée sur l'audit et l'analyse. Nous avons effectué des séries de mesures sur site pour comprendre concrètement le comportement des ondes Wi-Fi dans un environnement réel. Cela impliquait d'étudier la différence de propagation et de portée entre les bandes <strong>2,4 GHz et 5 GHz</strong>, tout en analysant l'impact direct des <strong>obstacles physiques</strong> (murs, portes, mobilier) sur l'atténuation du signal.</p>
+                    <p>Enfin, l'objectif final était de synthétiser ces relevés (heatmaps) pour formuler un diagnostic précis et <strong>proposer des solutions concrètes d'amélioration</strong> (ajustement des canaux, repositionnement stratégique des bornes) afin de garantir des performances optimales aux utilisateurs.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Déroulement & méthodologie</h2>
+                <ol class="steps">
+                    <li><strong>Câblage physique</strong> en catégorie 6A (sertissage, brassage en baie).</li>
+                    <li>Configuration des <strong>commutateurs Cisco</strong>.</li>
+                    <li>Mise en service des <strong>points d'accès</strong> Wi-Fi.</li>
+                    <li><strong>Audit de couverture</strong> : mesure du signal et cartographie.</li>
+                    <li>Analyse des résultats et préconisations d'amélioration.</li>
+                </ol>
+            </div>
+
+            <div class="detail-block">
+                <h2>Illustrations</h2>
+                <div class="screenshots-grid">
+
+                    <div class="screenshot-card">
+                        <img src="images/cablage.png" alt="Câblage" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Câblage du projet</span>
+                            <span class="screenshot-stat">Explication du câblage réalisé pour le projet</span>
+                        </div>
+                    </div>
+                    
+                    <div class="screenshot-card">
+                        <img src="images/mesure802.11a.png" alt="Mesure borne AP" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Mesure AP</span>
+                            <span class="screenshot-stat">Analyse du signal 802.11a</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/heatmaprdc.png" alt="Heatmap RDC" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Heatmap RDC</span>
+                            <span class="screenshot-stat">Analyse du signal au RDC grâce à la Heatmap</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/heatmap1etage.png" alt="Heatmap 1er" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Heatmap 1er étage</span>
+                            <span class="screenshot-stat">Analyse du signal au 1er étage grâce à la Heatmap</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Technologies</h2>
+                <ul class="tech-list">
+                    <li>Câblage Cat 6A</li>
+                    <li>Cisco</li>
+                    <li>Points d'accès Wi-Fi</li>
+                    <li>Audit radio</li>
+                    <li>Switching</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                <div class="comp-detail-item d2">
+                    <span class="ac-code" style="background:var(--c2-soft);color:var(--c2)">AC12.01</span>
+                    <p>Mesure et analyse des signaux radio lors de l'audit de couverture Wi-Fi.</p>
+                </div>
+                <div class="comp-detail-item d2">
+                    <span class="ac-code" style="background:var(--c2-soft);color:var(--c2)">AC12.03</span>
+                    <p>Déploiement de supports de transmission : câblage cuivre Cat 6A.</p>
+                </div>
+                <div class="comp-detail-item d1">
+                    <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.03</span>
+                    <p>Configuration des fonctions de base du réseau local sur les commutateurs.</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Retour d'expérience</h2>
+                <div class="detail-prose">
+                    <p>Ce projet a été une expérience particulièrement enrichissante. J'ai beaucoup apprécié de ne pas me limiter à la simple exécution technique du câblage, mais de pouvoir comprendre concrètement le fonctionnement invisible du réseau à travers l'étude des ondes radio. Voir l'impact immédiat d'un mur ou d'un obstacle sur les graphiques de signal donne une dimension très concrète aux notions théoriques vues en cours.</p>
+            </div>
+
+            <div class="detail-footer-nav">
+                <a href="projet-sae105.html" class="btn btn-ghost">← SAÉ 1.05</a>
+                <a href="Sae2.02.html" class="btn">Me contacter →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

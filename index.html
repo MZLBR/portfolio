@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | BUT R&T & Home Lab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="#hero">Accueil</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="hero">
+            <div class="hero-bg-grid"></div>
+            <h1>Salut, je suis <span class="highlight hacker-text" data-value="Louis">Louis</span></h1>
+            <p class="subtitle"></p>
+            <div class="hero-buttons">
+                <a href="#homelab" class="btn">Découvrir mon Home Lab</a>
+                <a href="images/CVAlternance.pdf" class="btn" download>Télécharger mon CV ↓</a>
+            </div>
+        </section>
+
+        <!-- COMPÉTENCES -->
+        <section id="skills" class="section">
+            <h2 class="section-title">Mes <span class="highlight">Compétences</span></h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>🌐 Réseaux</h3>
+                    <p>Cisco (IOS), VLAN, Routage inter-VLAN, Wireshark, DHCP, DNS</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🐧 Système & Infra</h3>
+                    <p>Linux (Debian/Ubuntu), Windows Server, Virtualisation, EVE-NG</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🐳 DevOps</h3>
+                    <p>Docker, Portainer, Docker Compose, Auto-hébergement de services</p>
+                </div>
+                <div class="skill-card">
+                    <h3>💻 Développement</h3>
+                    <p>Python, PowerShell, C++, HTML/CSS/JS</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🔒 Cybersécurité</h3>
+                    <p>Root-me, CTF, Analyse de trames, VPN, DNS over TLS</p>
+                </div>
+                <div class="skill-card">
+                    <h3>📊 Supervision</h3>
+                    <p>Uptime Kuma, Netdata, Dozzle, Alerting Discord</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS -->
+        <section id="projects" class="section">
+            <h2 class="section-title">Projets <span class="highlight">BUT R&T</span></h2>
+            <div class="projects-grid">
+                <a class="card-link" href="projet-sae102.html"><div class="project-card">
+                    <div class="project-content">
+                        <h3>SAÉ 1.02 : Architecture d'une Succursale</h3>
+                        <p>Conception et déploiement virtuel d'une infrastructure réseau sous EVE-NG.</p>
+                        <ul class="tech-list">
+                            <li>Cisco 2960/2800</li>
+                            <li>VLAN & Routage</li>
+                            <li>DHCP (Linux/Cisco)</li>
+                        </ul>
+                        <div class="comp-row"><p class="comp-label">Compétences référentiel</p><div class="comp-tags"><span class="comp-tag t1">AC11.02</span><span class="comp-tag t1">AC11.03</span><span class="comp-tag t1">AC11.04</span></div></div>
+                        <span class="card-cta">Lire l'étude de cas →</span>
+                    </div>
+                </div></a>
+                <a class="card-link" href="projet-sae105.html"><div class="project-card">
+                    <div class="project-content">
+                        <h3>SAÉ 1.05 : Outil de Reporting</h3>
+                        <p>Développement d'un outil d'analyse et de nettoyage de disque dur avec interface graphique.</p>
+                        <ul class="tech-list">
+                            <li>Python / PyQt5</li>
+                            <li>PowerShell</li>
+                            <li>JSON</li>
+                        </ul>
+                        <div class="comp-row"><p class="comp-label">Compétences référentiel</p><div class="comp-tags"><span class="comp-tag t3">AC13.01</span><span class="comp-tag t3">AC13.02</span><span class="comp-tag t3">AC13.03</span><span class="comp-tag t3">AC13.05</span></div></div>
+                        <span class="card-cta">Lire l'étude de cas →</span>
+                    </div>
+                </div></a>
+                <a class="card-link" href="projet-wifi.html"><div class="project-card">
+                    <div class="project-content">
+                        <h3>Dispositif de transmission Wi-Fi</h3>
+                        <p>Projet complet : câblage physique (Cat 6A), configuration switches et audit de couverture Wi-Fi.</p>
+                        <ul class="tech-list">
+                            <li>Câblage Cat 6A</li>
+                            <li>Switching</li>
+                            <li>Audit Radio</li>
+                        </ul>
+                        <div class="comp-row"><p class="comp-label">Compétences référentiel</p><div class="comp-tags"><span class="comp-tag t2">AC12.01</span><span class="comp-tag t2">AC12.03</span><span class="comp-tag t1">AC11.03</span></div></div>
+                        <span class="card-cta">Lire l'étude de cas →</span>
+                    </div>
+                </div></a>
+                <a class="card-link" href="Sae21.html"><div class="project-card">
+                    <div class="project-content">
+                        <h3>SAÉ 21 : Déploiement Réseau (GNS3)</h3>
+                        <p>Conception, adressage (VLSM) et sécurisation d'une infrastructure complète avec équilibrage de charge.</p>
+                        <ul class="tech-list">
+                            <li>GNS3</li>
+                            <li>Routage & VLANs</li>
+                            <li>Spanning-Tree (STP)</li>
+                        </ul>
+                        <div class="comp-row">
+                            <p class="comp-label">Compétences référentiel</p>
+                            <div class="comp-tags">
+                                <span class="comp-tag t1">AC11.02</span>
+                                <span class="comp-tag t1">AC11.03</span>
+                            </div>
+                        </div>
+                        <span class="card-cta">Lire l'étude de cas →</span>
+                    </div>
+                </div></a>
+                <a class="card-link" href="Sae2.02.html"><div class="project-card">
+                    <div class="project-content">
+                        <h3>SAÉ 2.02 : Web Radio IoT (ESP32)</h3>
+                        <p>Développement d'une Web Radio portable connectée en Wi-Fi et pilotable à distance via smartphone.</p>
+                        <ul class="tech-list">
+                            <li>Microcontrôleur ESP32</li>
+                            <li>IDE Arduino (C++)</li>
+                            <li>Flux Audio (CoDec)</li>
+                        </ul>
+                        <div class="comp-row">
+                            <p class="comp-label">Compétences référentiel</p>
+                            <div class="comp-tags">
+                                <span class="comp-tag t2">AC12.03</span>
+                                <span class="comp-tag t3">AC13.03</span>
+                            </div>
+                        </div>
+                        <span class="card-cta">Lire l'étude de cas →</span>
+                    </div>
+                </div></a>
+                
+                
+            </div>
+        </section>
+
+        <!-- HOME LAB -->
+        <section id="homelab" class="section">
+            <h2 class="section-title">Mon <span class="highlight">Home Lab</span></h2>
+            <p class="section-subtitle">Infrastructure auto-hébergée sur serveur physique dédié — en production 24/7.</p>
+            <a href="homelab.html" class="card-link">
+                <div class="lab-teaser">
+                    <div class="hardware-icon">🖥️</div>
+                    <div class="lab-teaser-info">
+                        <h3>Serveur Debian + Docker — 12 services</h3>
+                        <p>Pi-hole, Uptime Kuma, Netdata, Portainer, Vaultwarden, Samba, ntopng, Paperless… Topologie réseau, captures réelles et compétences détaillées sur la page dédiée.</p>
+                        <span class="card-cta">Explorer le home lab en détail →</span>
+                    </div>
+                    <div class="lab-teaser-stats">
+                        <div class="stat"><span class="stat-value accent">12+</span><span class="stat-label">Services</span></div>
+                        <div class="stat"><span class="stat-value accent">24/7</span><span class="stat-label">Uptime</span></div>
+                        <div class="stat"><span class="stat-value accent">100%</span><span class="stat-label">Self-hosted</span></div>
+                    </div>
+                </div>
+            </a>
+        </section>
+
+        <!-- RÉFÉRENTIEL BUT -->
+        <section id="referentiel" class="section">
+            <h2 class="section-title">Référentiel <span class="highlight">BUT R&T</span></h2>
+            <p class="section-subtitle">Les 3 compétences du tronc commun. Chaque projet et chaque service du Home Lab y est rattaché par un code couleur.</p>
+            <div class="ref-legend">
+                <span><i style="background:var(--c1)"></i>Administrer les réseaux</span>
+                <span><i style="background:var(--c2)"></i>Connecter les usagers</span>
+                <span><i style="background:var(--c3)"></i>Créer des outils</span>
+            </div>
+            <div class="ref-grid">
+                <div class="ref-card d1">
+                    <div class="ref-num">Compétence 1</div>
+                    <h3>Administrer les réseaux et l'Internet</h3>
+                    <p class="ref-sub">BUT 1 — Assister l'administrateur réseau</p>
+                    <ul class="ac-list">
+                        <li><span class="ac-code">AC11.02</span>Architecture des systèmes numériques et de l'Internet</li>
+                        <li><span class="ac-code">AC11.03</span>Configurer les fonctions de base du réseau local</li>
+                        <li><span class="ac-code">AC11.04</span>Maîtriser les systèmes d'exploitation pour l'administration</li>
+                        <li><span class="ac-code">AC11.05</span>Identifier et signaler les dysfonctionnements</li>
+                    </ul>
+                </div>
+                <div class="ref-card d2">
+                    <div class="ref-num">Compétence 2</div>
+                    <h3>Connecter les entreprises et les usagers</h3>
+                    <p class="ref-sub">BUT 1 — Découvrir les transmissions et la ToIP</p>
+                    <ul class="ac-list">
+                        <li><span class="ac-code">AC12.01</span>Mesurer, analyser et commenter les signaux</li>
+                        <li><span class="ac-code">AC12.03</span>Déployer des supports de transmission</li>
+                        <li><span class="ac-code">AC12.04</span>Connecter les systèmes de ToIP</li>
+                        <li><span class="ac-code">AC12.05</span>Communiquer en adaptant son discours</li>
+                    </ul>
+                </div>
+                <div class="ref-card d3">
+                    <div class="ref-num">Compétence 3</div>
+                    <h3>Créer des outils et applications pour les R&T</h3>
+                    <p class="ref-sub">BUT 1 — S'intégrer dans un service informatique</p>
+                    <ul class="ac-list">
+                        <li><span class="ac-code">AC13.01</span>Utiliser un système informatique et ses outils</li>
+                        <li><span class="ac-code">AC13.02</span>Lire, exécuter, corriger et modifier un programme</li>
+                        <li><span class="ac-code">AC13.03</span>Traduire un algorithme, dans un langage et pour un environnement donné</li>
+                        <li><span class="ac-code">AC13.04</span>Connaître l'architecture et les technologies d'un site web</li>
+                        <li><span class="ac-code">AC13.05</span>Choisir les mécanismes de gestion de données</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARCOURS -->
+        <section id="experience" class="section">
+            <h2 class="section-title">Mon <span class="highlight">Parcours</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Septembre 2026</div>
+                    <h3>Recherche d'Alternance</h3>
+                    <p>Début du contrat. Rythme : 1 mois en entreprise / 1 mois à l'IUT de Colmar.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Été 2025</div>
+                    <h3>Vendeur / Technicien — Décathlon Dornach</h3>
+                    <p>Rayon vélo et sports d'équipes. Conseils clients et montage de vélos.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Été 2023</div>
+                    <h3>Moniteur — Acropark Burnhaupt</h3>
+                    <p>Gestion de groupes, responsabilité de la sécurité des clients, accompagnement et conseils.</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023</div>
+                    <h3>Baccalauréat - Mention Bien</h3>
+                    <p>Spécialités SES & Géopolitique</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020</div>
+                    <h3>Stagiaire — Albus Service Informatique</h3>
+                    <p>Initiation au codage en Python, Javascript et CSS, apprentissage de l'algorithmique.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <h2 class="section-title">Me <span class="highlight">Contacter</span></h2>
+            <p class="section-subtitle">En recherche d'alternance à partir de septembre 2026 en administration réseau / infrastructure.</p>
+            <div class="contact-links">
+                <a href="mailto:leibrichlouis@gmail.com" class="contact-card">
+                    <span class="contact-icon">✉️</span>
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">leibrichlouis@gmail.com</span>
+                </a>
+                <a href="tel:+33611044817" class="contact-card">
+                    <span class="contact-icon">📞</span>
+                    <span class="contact-label">Téléphone</span>
+                    <span class="contact-value">06 11 04 48 17</span>
+                </a>
+                <a href="https://linkedin.com/in/" target="_blank" class="contact-card">
+                    <span class="contact-icon">💼</span>
+                    <span class="contact-label">LinkedIn</span>
+                    <span class="contact-value">linkedin.com/in/louis-leibrich</span>
+                </a>
+                <a href="https://github.com/" target="_blank" class="contact-card">
+                    <span class="contact-icon">🐙</span>
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">github.com/louis-leibrich</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

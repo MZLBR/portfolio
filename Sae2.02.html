@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 2.02 — Web Radio IoT (ESP32) — Louis Leibrich</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#projects" class="back-link">← Tous les projets</a>
+            <div class="detail-badges">
+                <span class="sae-badge">SAÉ 2.02</span>
+                <span class="detail-context">IUT de Colmar · BUT1 · S2</span>
+            </div>
+            <h1 class="detail-title">Web Radio portable <span class="highlight">IoT</span></h1>
+            <p class="detail-lede">Conception et programmation d'un système embarqué connecté basé sur un microcontrôleur ESP32 et pilotable à distance par smartphone.</p>
+            <div class="comp-tags"><span class="comp-tag t2">AC12.03</span><span class="comp-tag t3">AC13.03</span></div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Contexte & objectifs</h2>
+                <div class="detail-prose">
+                    <p>Ce projet orienté Internet des Objets (SAÉ 2.02) avait pour but d'allier l'électronique matérielle et le développement logiciel pour concevoir une <strong>Web Radio nomade et autonome</strong>. Le cahier des charges prévoyait la réception et la restitution en stéréo de flux audios numériques Internet (encodés en MP3 ou AAC).</p>
+                    <p>L'originalité technique du projet reposait sur le mode d'interaction : l'utilisateur devait pouvoir s'affranchir de boutons physiques en prenant le contrôle complet de l'appareil (sélection des flux, gestion fine du volume, égalisation de la tonalité et traitement de la spatialisation stéréo) à distance, directement à l'aide de l'interface réseau de son <strong>smartphone</strong>.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Déroulement & méthodologie</h2>
+                <ol class="steps">
+                    <li>Étude de l'architecture matérielle Adafruit et interconnexion des composants de traitement.</li>
+                    <li>Configuration de l'environnement embarqué sous l'<strong>IDE Arduino</strong> (langage C++).</li>
+                    <li>Développement du module de connexion sans fil <strong>Wi-Fi</strong> de l'ESP32 et requêtes HTTP vers les annuaires de flux streaming.</li>
+                    <li>Programmation et pilotage via bus de communication du <strong>CoDec matériel VS1053</strong> pour décoder les trames audios reçues à la volée.</li>
+                    <li>Optimisation logicielle du traitement du signal (gestion de la mise en mémoire tampon ou *buffer* pour parer aux micro-coupures réseau).</li>
+                    <li>Création d'un serveur Web embarqué léger sur l'ESP32 pour intercepter les commandes de contrôle distantes du smartphone.</li>
+                </ol>
+            </div>
+
+            <div class="detail-block">
+                <h2>Architecture & Preuves</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Le synoptique ci-dessous illustre le cheminement logique du signal, depuis le flux Web jusqu'à la sortie audio analogique.</p>
+                
+                <div class="network-diagram" style="margin-bottom: 20px;">
+                    <h3 class="diagram-title">// Flux de Traitement et Communication IoT</h3>
+                    <div class="diagram-container">
+                        <div class="diagram-layer">
+                            <div class="diagram-node router">
+                                <span class="node-icon">🌐</span>
+                                <span class="node-label">Flux Internet (URL MP3)</span>
+                                <span class="node-sub">Serveurs de Streaming Distants</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> Flux Wi-Fi (802.11)</div>
+                        <div class="diagram-layer mid">
+                            <div class="diagram-node server">
+                                <span class="node-icon">📱</span>
+                                <span class="node-label">Microcontrôleur ESP32</span>
+                                <span class="node-sub">Gestion Tampon Network & Serveur Web de Contrôle</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> Bus de Données SPI</div>
+                        <div class="diagram-layer services-layer">
+                            <div class="diagram-node svc">
+                                <span class="node-icon">🔊</span>
+                                <span class="node-label">CoDec VS1053</span>
+                                <span class="node-sub">Décodage audio matériel</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">🎧</span>
+                                <span class="node-label">Sortie Jack / HP</span>
+                                <span class="node-sub">Restitution Audio Stéréo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Technologies utilisées</h2>
+                <ul class="tech-list">
+                    <li>Microcontrôleur ESP32</li>
+                    <li>CoDec Adafruit VS1053</li>
+                    <li>IDE Arduino (C++)</li>
+                    <li>Wi-Fi (802.11 b/g/n)</li>
+                    <li>Protocoles HTTP & Web Sockets</li>
+                    <li>Architecture Client/Serveur Embarquée</li>
+                    <li>Traitement Numérique du Signal (Audio)</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                    <div class="comp-detail-item d2">
+                        <span class="ac-code" style="background:var(--c2-soft);color:var(--c2)">AC12.03</span>
+                        <p>Déployer des supports de transmission par le paramétrage et la fiabilisation des accès radioélectriques Wi-Fi indispensables à la réception continue du flux d'informations.</p>
+                    </div>
+                    <div class="comp-detail-item d3">
+                        <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.03</span>
+                        <p>Traduire un algorithme, dans un langage et pour un environnement donné, en codant en C++ l'ensemble des structures logiques régissant la réception réseau, la mémoire tampon et l'envoi de commandes matérielles au CoDec.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Retour d'expérience</h2>
+                <div class="detail-prose">
+                    <p>Ce projet m'a permis d'appréhender le fonctionnement intime des objets connectés. Développer du code devant s'exécuter sur une puce à ressources limitées (comme l'ESP32) est un exercice extrêmement formateur qui tranche avec le développement sur PC classique. J'ai adoré l'aspect pluridisciplinaire du projet, liant la configuration réseau sans fil à la manipulation pure de composants électroniques en bus SPI.</p>
+                    <p><strong>Difficultés rencontrées & Solutions :</strong> Le défi principal a été de résoudre le problème des saccades audios causées par des *buffer underruns* (lorsque la mémoire tampon se vide plus vite qu'elle ne se remplit à cause de fluctuations du Wi-Fi). Pour y remédier, j'ai optimisé la boucle principale du programme (la fonction <code>loop()</code>) pour donner une priorité absolue à l'alimentation en données du décodeur VS1053, en espaçant intelligemment les requêtes secondaires de rafraîchissement de l'interface Web.</p>
+                    <p><strong>Si c'était à refaire :</strong> J'implémenterais une solution de mise en veille matérielle automatique de la puce Wi-Fi en l'absence de lecture audio afin d'optimiser radicalement la consommation énergétique de la Web Radio lorsqu'elle fonctionne sur batterie nomade.</p>
+                </div>
+            </div>
+
+            <div class="detail-footer-nav">
+                <a href="Sae21.html" class="btn btn-ghost">← SAÉ 21 (GNS3)</a>
+                <a href="index.html#contact" class="btn">Me contacter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

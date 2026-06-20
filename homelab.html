@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Lab — Louis Leibrich · BUT R&T</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#homelab" class="back-link">← Retour à l'accueil</a>
+            <div class="detail-badges">
+                <span class="sae-badge">Home Lab</span>
+                <span class="detail-context">Infrastructure auto-hébergée · 24/7</span>
+            </div>
+            <h1 class="detail-title">Mon <span class="highlight">Home Lab</span></h1>
+            <p class="detail-lede">Un serveur physique dédié sous Linux Debian qui héberge une douzaine de services via Docker : DNS, supervision, stockage réseau, sécurité et accès distant. Mon terrain d'expérimentation pour mettre en pratique — et dépasser — le programme du BUT.</p>
+            <div class="comp-tags">
+                <span class="comp-tag t1">Administrer</span>
+                <span class="comp-tag t2">Connecter</span>
+                <span class="comp-tag t3">Créer</span>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Le contexte</h2>
+                <div class="detail-prose">
+                    <p>Au-delà des cours, j'ai monté ma propre infrastructure pour comprendre concrètement comment fonctionne un réseau de services en production. Chaque brique a été choisie, déployée et configurée par mes soins, puis supervisée pour garantir une disponibilité continue.</p>
+                </div>
+                <div class="todo-note"><strong>// À compléter :</strong> raconte ici pourquoi tu as monté ce lab, ton matériel exact (modèle du serveur, RAM, stockage), et ce que tu as appris. Plus c'est personnel, plus c'est crédible en entretien.</div>
+            </div>
+<!-- HARDWARE CARD -->
+            <div class="hardware-card">
+                <div class="hardware-icon">🖥️</div>
+                <div class="hardware-info">
+                    <h3>Serveur Physique — HP ProDesk</h3>
+                    <p>Petit PC dédié tournant sous <span class="highlight">Linux Debian</span>, accessible via SSH. Héberge l'ensemble de l'infrastructure grâce à Docker.</p>
+                </div>
+                <div class="hardware-stats">
+                    <div class="stat">
+                        <span class="stat-value accent">12+</span>
+                        <span class="stat-label">Services</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value accent">24/7</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value accent">100%</span>
+                        <span class="stat-label">Self-hosted</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETWORK DIAGRAM -->
+            <div class="network-diagram">
+                <h3 class="diagram-title">// Topologie Réseau</h3>
+                <div class="diagram-container">
+                    <div class="diagram-layer">
+                        <div class="diagram-node internet">
+                            <span class="node-icon">🌍</span>
+                            <span class="node-label">Internet</span>
+                        </div>
+                    </div>
+                    <div class="diagram-arrow down"><span>▼</span> Tailscale VPN</div>
+                    <div class="diagram-layer mid">
+                        <div class="diagram-node router">
+                            <span class="node-icon">📡</span>
+                            <span class="node-label">Box / Routeur</span>
+                        </div>
+                        <div class="diagram-connector"></div>
+                        <div class="diagram-node vpn">
+                            <span class="node-icon">🔒</span>
+                            <span class="node-label">Tailscale</span>
+                            <span class="node-sub">Accès distant sécurisé</span>
+                        </div>
+                    </div>
+                    <div class="diagram-arrow down"><span>▼</span> Réseau Local (LAN)</div>
+                    <div class="diagram-layer">
+                        <div class="diagram-node server">
+                            <span class="node-icon">🖥️</span>
+                            <span class="node-label">HP ProDesk</span>
+                            <span class="node-sub">192.168.1.x</span>
+                        </div>
+                    </div>
+                    <div class="diagram-arrow down"><span>▼</span> Docker</div>
+                    <div class="diagram-layer services-layer">
+                        <div class="diagram-node svc dns">
+                            <span class="node-icon">🛡️</span>
+                            <span class="node-label">Pi-Hole</span>
+                        </div>
+                        <div class="diagram-node svc">
+                            <span class="node-icon">🔗</span>
+                            <span class="node-label">Unbound</span>
+                        </div>
+                        <div class="diagram-node svc">
+                            <span class="node-icon">🐳</span>
+                            <span class="node-label">Portainer</span>
+                        </div>
+                        <div class="diagram-node svc">
+                            <span class="node-icon">🔑</span>
+                            <span class="node-label">Vaultwarden</span>
+                        </div>
+                        <div class="diagram-node svc">
+                            <span class="node-icon">📂</span>
+                            <span class="node-label">Samba</span>
+                        </div>
+                        <div class="diagram-node svc">
+                            <span class="node-icon">📊</span>
+                            <span class="node-label">Netdata</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SERVICES GRID -->
+            <h3 class="services-title">// Services déployés</h3>
+            <div class="services-grid">
+
+                <div class="service-card" data-category="réseau">
+                    <div class="service-header">
+                        <span class="service-icon">🛡️</span>
+                        <div>
+                            <h4>Pi-Hole + Unbound</h4>
+                            <span class="service-badge">DNS & Sécurité</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Bloqueur de publicités au niveau DNS pour tout le réseau local. Couplé à <strong>Unbound</strong> comme résolveur récursif local sur le port 5335 — aucune requête DNS ne sort en clair vers des serveurs tiers.</p>
+                    <ul class="tech-list">
+                        <li>DNS filtering</li>
+                        <li>DNS over TLS</li>
+                        <li>Résolution privée</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.03</span><span class="comp-tag t1">AC11.05</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="docker">
+                    <div class="service-header">
+                        <span class="service-icon">🐳</span>
+                        <div>
+                            <h4>Portainer</h4>
+                            <span class="service-badge">Gestion Docker</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Interface web de gestion de l'ensemble des conteneurs Docker. Déploiement de stacks via l'éditeur intégré, suivi des volumes, réseaux et logs en temps réel.</p>
+                    <ul class="tech-list">
+                        <li>Docker Stacks</li>
+                        <li>HTTPS (port 9443)</li>
+                        <li>Container orchestration</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t3">AC13.01</span><span class="comp-tag t1">AC11.04</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="réseau">
+                    <div class="service-header">
+                        <span class="service-icon">🔒</span>
+                        <div>
+                            <h4>Tailscale VPN</h4>
+                            <span class="service-badge">Accès distant</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>VPN mesh basé sur WireGuard permettant d'accéder à l'infrastructure depuis n'importe où (4G/5G). Le Pi-Hole est utilisé comme DNS via Tailscale avec l'option <em>Override local DNS</em>.</p>
+                    <ul class="tech-list">
+                        <li>WireGuard</li>
+                        <li>DNS override</li>
+                        <li>Accès mobile</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.03</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="stockage">
+                    <div class="service-header">
+                        <span class="service-icon">📂</span>
+                        <div>
+                            <h4>Samba</h4>
+                            <span class="service-badge">Stockage réseau</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Partage de fichiers réseau monté comme lecteur <code>Z:</code> sous Windows via le protocole SMB. Permet un stockage centralisé accessible depuis tous les postes du LAN.</p>
+                    <ul class="tech-list">
+                        <li>SMB/CIFS</li>
+                        <li>Partage LAN</li>
+                        <li>Authentification</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.03</span><span class="comp-tag t3">AC13.01</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="sécurité">
+                    <div class="service-header">
+                        <span class="service-icon">🔑</span>
+                        <div>
+                            <h4>Vaultwarden</h4>
+                            <span class="service-badge">Sécurité</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Alternative open-source à Bitwarden, auto-hébergée et accessible via HTTPS grâce à Tailscale. Inscriptions désactivées après création du compte — instance sécurisée à usage personnel.</p>
+                    <ul class="tech-list">
+                        <li>Bitwarden-compatible</li>
+                        <li>HTTPS / Tailscale</li>
+                        <li>Chiffrement E2E</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.04</span><span class="comp-tag t3">AC13.04</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="monitoring">
+                    <div class="service-header">
+                        <span class="service-icon">📡</span>
+                        <div>
+                            <h4>Uptime Kuma</h4>
+                            <span class="service-badge">Monitoring</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Surveillance de la disponibilité de chaque service. Envoie des <strong>alertes Discord via Webhook</strong> en cas de panne. Tableau de bord avec historique d'uptime et temps de réponse.</p>
+                    <ul class="tech-list">
+                        <li>Alerting Discord</li>
+                        <li>Webhook</li>
+                        <li>Historique uptime</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.05</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="monitoring">
+                    <div class="service-header">
+                        <span class="service-icon">🚀</span>
+                        <div>
+                            <h4>Netdata</h4>
+                            <span class="service-badge">Métriques système</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Tableau de bord temps réel pour surveiller CPU, RAM, température, réseau et stockage. Interface "vaisseau spatial" avec des centaines de métriques collectées à la seconde.</p>
+                    <ul class="tech-list">
+                        <li>CPU / RAM / Temp</li>
+                        <li>Métriques réseau</li>
+                        <li>Temps réel</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.05</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="monitoring">
+                    <div class="service-header">
+                        <span class="service-icon">📋</span>
+                        <div>
+                            <h4>Dozzle</h4>
+                            <span class="service-badge">Logs</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Visualisateur de logs Docker en temps réel. Permet de voir les sorties de chaque conteneur sans avoir à utiliser <code>docker logs</code> en CLI. Accès protégé par mot de passe.</p>
+                    <ul class="tech-list">
+                        <li>Logs temps réel</li>
+                        <li>Auth protégée</li>
+                        <li>Multi-conteneurs</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.05</span><span class="comp-tag t3">AC13.01</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="dashboard">
+                    <div class="service-header">
+                        <span class="service-icon">🏠</span>
+                        <div>
+                            <h4>Homepage</h4>
+                            <span class="service-badge">Portail d'accueil</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Dashboard centralisé configuré via fichiers <code>.yaml</code>. Agrège les liens vers tous les services du lab avec widgets d'état, météo et informations système.</p>
+                    <ul class="tech-list">
+                        <li>Config YAML</li>
+                        <li>Widgets dynamiques</li>
+                        <li>Portail centralisé</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t3">AC13.04</span><span class="comp-tag t3">AC13.01</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="documents">
+                    <div class="service-header">
+                        <span class="service-icon">📄</span>
+                        <div>
+                            <h4>Paperless-ngx</h4>
+                            <span class="service-badge">Gestion documentaire</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Système de gestion de documents numérisés avec OCR automatique. Indexe, classe et rend recherchables tous les documents. Stack complète : Redis + PostgreSQL + serveur web.</p>
+                    <ul class="tech-list">
+                        <li>OCR automatique</li>
+                        <li>PostgreSQL</li>
+                        <li>Redis</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t3">AC13.05</span><span class="comp-tag t3">AC13.01</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="réseau">
+                    <div class="service-header">
+                        <span class="service-icon">📈</span>
+                        <div>
+                            <h4>ntopng</h4>
+                            <span class="service-badge">Analyse réseau</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Analyseur de trafic réseau en temps réel. Visualise les flux, identifie les hôtes les plus actifs et détecte les comportements anormaux sur le LAN.</p>
+                    <ul class="tech-list">
+                        <li>Deep Packet Inspection</li>
+                        <li>Analyse de flux</li>
+                        <li>Temps réel</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t1">AC11.05</span><span class="comp-tag t2">AC12.01</span></div></div>
+                </div>
+
+                <div class="service-card" data-category="docker">
+                    <div class="service-header">
+                        <span class="service-icon">🔄</span>
+                        <div>
+                            <h4>Watchtower</h4>
+                            <span class="service-badge">Automatisation</span>
+                        </div>
+                        <span class="service-status online"></span>
+                    </div>
+                    <p>Met à jour automatiquement les images Docker en production. Surveille le Docker Hub et redémarre les conteneurs avec la dernière version — zéro intervention manuelle.</p>
+                    <ul class="tech-list">
+                        <li>Auto-update</li>
+                        <li>Docker Hub</li>
+                        <li>Sans interruption</li>
+                    </ul>
+                    <div class="comp-row"><div class="comp-tags"><span class="comp-tag t3">AC13.01</span></div></div>
+                </div>
+
+            </div>
+
+            <!-- SCREENSHOTS GALLERY -->
+            <h3 class="services-title" style="margin-top: 60px;">// En production — captures réelles</h3>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <img src="images/pihole_sc.png" alt="Pi-hole Dashboard" loading="lazy">
+                    <div class="screenshot-caption">
+                        <span class="screenshot-label">Pi-hole</span>
+                        <span class="screenshot-stat">103 156 requêtes · 47,8% bloquées</span>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="images/kuma_sc.png" alt="Uptime Kuma" loading="lazy">
+                    <div class="screenshot-caption">
+                        <span class="screenshot-label">Uptime Kuma</span>
+                        <span class="screenshot-stat">6 services · 100% uptime</span>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="images/netdata_sc.png" alt="Netdata Monitoring" loading="lazy">
+                    <div class="screenshot-caption">
+                        <span class="screenshot-label">Netdata</span>
+                        <span class="screenshot-stat">CPU 12% · RAM 60% · Réseau stable</span>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="images/portainer_sc.png" alt="Portainer Container List" loading="lazy">
+                    <div class="screenshot-caption">
+                        <span class="screenshot-label">Portainer</span>
+                        <span class="screenshot-stat">12 conteneurs · tous healthy/running</span>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="images/homepage_sc.png" alt="Homepage Dashboard" loading="lazy">
+                    <div class="screenshot-caption">
+                        <span class="screenshot-label">Homepage</span>
+                        <span class="screenshot-stat">Portail centralisé · widgets temps réel</span>
+                    </div>
+                </div>
+            </div>
+
+        
+            <div class="detail-block" style="margin-top:30px;">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                    <div class="comp-detail-item d1">
+                        <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.03/04/05</span>
+                        <p><strong>Administrer les réseaux :</strong> configuration de services réseau (DNS Pi-hole, partage Samba), administration d'un système Linux et supervision continue (Uptime Kuma, Netdata) pour détecter les dysfonctionnements.</p>
+                    </div>
+                    <div class="comp-detail-item d2">
+                        <span class="ac-code" style="background:var(--c2-soft);color:var(--c2)">AC12.01</span>
+                        <p><strong>Connecter les usagers :</strong> mise en place d'un accès distant sécurisé (Tailscale / WireGuard) et analyse du trafic réseau (ntopng) pour observer les flux.</p>
+                    </div>
+                    <div class="comp-detail-item d3">
+                        <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.01/04/05</span>
+                        <p><strong>Créer des outils :</strong> déploiement et orchestration de conteneurs Docker (Portainer), configuration de dashboards (Homepage en YAML), gestion de données (Paperless : PostgreSQL + Redis) et automatisation (Watchtower).</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-footer-nav">
+                <a href="index.html#projects" class="btn btn-ghost">← Voir mes projets BUT</a>
+                <a href="index.html#contact" class="btn">Me contacter →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

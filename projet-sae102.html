@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 1.02 — Architecture réseau d'une succursale — Louis Leibrich</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#projects" class="back-link">← Tous les projets</a>
+            <div class="detail-badges">
+                <span class="sae-badge">SAÉ 1.02</span>
+                <span class="detail-context">IUT de Colmar · BUT1 · S1</span>
+            </div>
+            <h1 class="detail-title">Architecture réseau d'une <span class="highlight">succursale</span></h1>
+            <p class="detail-lede">Conception et déploiement virtuel, de bout en bout, de l'infrastructure réseau d'une succursale d'entreprise sous EVE-NG.</p>
+            <div class="comp-tags"><span class="comp-tag t1">AC11.02</span><span class="comp-tag t1">AC11.03</span><span class="comp-tag t1">AC11.04</span></div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Contexte & objectifs</h2>
+                <div class="detail-prose">
+                    <p>L'objectif de cette SAÉ était de concevoir l'infrastructure réseau complète d'une succursale d'entreprise, puis de la déployer dans un environnement virtualisé sous <strong>EVE-NG</strong> en reproduisant fidèlement du matériel <strong>Cisco</strong> (Routeur 2800 et Commutateur 2960).</p>
+                    <p>Le cahier des charges imposait une contrainte forte : chaque étudiant recevait un réseau de base unique. Mon identifiant étudiant étant le numéro 101, j'ai dû concevoir l'intégralité du plan d'adressage IP à partir du bloc <strong>172.20.101.0/24</strong>. Le livrable final devait inclure 4 VLANs distincts (Direction, Utilisateurs, Serveurs, Admin), le routage inter-VLAN (Router-on-a-stick), et la distribution automatique des adresses via un serveur DHCP configuré directement sur le matériel Cisco.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Déroulement & méthodologie</h2>
+                <ol class="steps">
+                    <li>Élaboration du <strong>plan d'adressage IP</strong> et découpage en sous-réseaux.</li>
+                    <li>Construction de la topologie sous <strong>EVE-NG</strong> (commutateurs 2960, routeurs 2800).</li>
+                    <li>Création des <strong>VLAN</strong> dédiés (postes, serveurs, administration).</li>
+                    <li>Mise en place du <strong>routage inter-VLAN</strong>.</li>
+                    <li>Déploiement des serveurs <strong>DHCP</strong> sous Cisco IOS puis sous Linux.</li>
+                    <li>Tests de connectivité et validation du plan d'adressage.</li>
+                </ol>
+            </div>
+
+            <div class="detail-block">
+                <h2>Architecture & Adressage</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">N'ayant plus les captures d'écran originales d'EVE-NG, j'ai reconstitué la topologie logique et le plan d'adressage (VLSM) basé sur mon sous-réseau attribué (<strong>172.20.101.0/24</strong>).</p>
+                
+                <div class="network-diagram" style="margin-bottom: 40px;">
+                    <h3 class="diagram-title">// Topologie Logique EVE-NG</h3>
+                    <div class="diagram-container">
+                        <div class="diagram-layer">
+                            <div class="diagram-node router">
+                                <span class="node-icon">🔄</span>
+                                <span class="node-label">Routeur 2800</span>
+                                <span class="node-sub">Routage Inter-VLAN (802.1Q)</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> Trunk (Gi0/0)</div>
+                        <div class="diagram-layer mid">
+                            <div class="diagram-node server">
+                                <span class="node-icon">🖧</span>
+                                <span class="node-label">Switch 2960</span>
+                                <span class="node-sub">Serveur DHCP intégré</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> Accès VLANs</div>
+                        <div class="diagram-layer services-layer">
+                            <div class="diagram-node svc">
+                                <span class="node-icon">👨‍💼</span>
+                                <span class="node-label">VPC-Dire</span>
+                                <span class="node-sub">VLAN 10</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">👥</span>
+                                <span class="node-label">VPC-Util</span>
+                                <span class="node-sub">VLAN 20</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">🖥️</span>
+                                <span class="node-label">Srv Linux</span>
+                                <span class="node-sub">VLAN 30</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">🛠️</span>
+                                <span class="node-label">VPC-Admi</span>
+                                <span class="node-sub">VLAN 40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="diagram-title" style="margin-bottom: 15px;">// Plan d'adressage IP (VLSM)</h3>
+                <div style="overflow-x:auto;">
+                    <table style="width:100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; text-align: left;">
+                        <thead>
+                            <tr style="background: rgba(0, 255, 204, 0.05); color: var(--accent-color);">
+                                <th style="padding: 12px; border-bottom: 1px solid var(--border-color);">VLAN</th>
+                                <th style="padding: 12px; border-bottom: 1px solid var(--border-color);">Hôtes (Max)</th>
+                                <th style="padding: 12px; border-bottom: 1px solid var(--border-color);">Réseau / CIDR</th>
+                                <th style="padding: 12px; border-bottom: 1px solid var(--border-color);">Plage Utilisable</th>
+                                <th style="padding: 12px; border-bottom: 1px solid var(--border-color);">Passerelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">20 - Utilisateurs</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">60</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">172.20.101.0 /26</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">.1 à .62</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color); color: var(--accent-color);">.62</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">10 - Direction</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">3</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">172.20.101.64 /29</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">.65 à .70</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color); color: var(--accent-color);">.70</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">30 - Serveurs</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">2</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">172.20.101.72 /29</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color);">.73 à .78</td>
+                                <td style="padding: 12px; border-bottom: 1px solid var(--border-color); color: var(--accent-color);">.78</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px; border-bottom: 1px solid transparent;">40 - Administrateur</td>
+                                <td style="padding: 12px; border-bottom: 1px solid transparent;">1</td>
+                                <td style="padding: 12px; border-bottom: 1px solid transparent;">172.20.101.80 /29</td>
+                                <td style="padding: 12px; border-bottom: 1px solid transparent;">.81 à .86</td>
+                                <td style="padding: 12px; border-bottom: 1px solid transparent; color: var(--accent-color);">.86</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; font-style: italic;">* Note : Conformément au cahier des charges, la passerelle par défaut correspond toujours à la dernière adresse IP disponible du sous-réseau. Le nombre minimum de bits d'hôtes est fixé à 3 (masque /29 minimum).</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Technologies</h2>
+                <ul class="tech-list">
+                    <li>EVE-NG</li>
+                    <li>Cisco IOS</li>
+                    <li>Switch 2960</li>
+                    <li>Routeur 2800</li>
+                    <li>VLAN</li>
+                    <li>Routage inter-VLAN</li>
+                    <li>DHCP</li>
+                    <li>Linux</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                <div class="comp-detail-item d1">
+                    <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.02</span>
+                    <p>Compréhension de l'architecture d'un réseau d'entreprise et des principes de l'adressage IP.</p>
+                </div>
+                <div class="comp-detail-item d1">
+                    <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.03</span>
+                    <p>Configuration des fonctions de base du réseau local : VLAN, routage inter-VLAN et DHCP.</p>
+                </div>
+                <div class="comp-detail-item d1">
+                    <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.04</span>
+                    <p>Mise en place d'un service DHCP sous Linux, en interaction directe avec le système d'exploitation.</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Retour d'expérience</h2>
+                <div class="detail-prose">
+                    <p>Cette SAÉ a été mon premier grand projet d'infrastructure virtuelle. J'ai particulièrement apprécié l'exercice du <strong>VLSM (Variable Length Subnet Mask)</strong>. Devoir optimiser le découpage du réseau <code>172.20.101.0/24</code> en fonction du nombre précis d'hôtes m'a permis de comprendre l'importance d'une planification rigoureuse sur papier avant même de toucher aux équipements.</p>
+                    
+                    <p><strong>Difficultés rencontrées & Solutions :</strong> Au-delà de la configuration logique de l'encapsulation (dot1Q) pour le routage inter-VLAN, la principale difficulté a été d'ordre purement technique avec la plateforme de virtualisation. J'ai rencontré de nombreux bugs avec <strong>EVE-NG</strong> lors des phases d'importation et d'exportation des topologies (fichiers <code>.unl</code>) entre différents PC. Certains transferts provoquaient des pertes de liaisons ou corrompaient les configurations des équipements. Pour résoudre cela, nous avons dû mettre en place une méthode de travail stricte : centraliser le laboratoire principal sur une seule machine et sauvegarder systématiquement toutes les configurations Cisco (via les <code>show running-config</code>) dans des fichiers texte externes. En cas de bug d'importation, nous pouvions ainsi recréer les liens et réinjecter le code instantanément dans la CLI.</p>
+                    
+                    <p><strong>Si c'était à refaire :</strong> Aujourd'hui, je documenterais et externaliserais chaque configuration d'équipement dans un script texte dès le premier jour. Cela évite de dépendre entièrement de la stabilité des mécanismes d'export de la plateforme lors du travail collaboratif ou du changement de poste informatique.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

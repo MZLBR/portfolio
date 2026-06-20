@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 1.05 — Outil de reporting & nettoyage de disque — Louis Leibrich</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#projects" class="back-link">← Tous les projets</a>
+            <div class="detail-badges">
+                <span class="sae-badge">SAÉ 1.05</span>
+                <span class="detail-context">IUT de Colmar · BUT1 · S1</span>
+            </div>
+            <h1 class="detail-title">Outil de reporting & <span class="highlight">nettoyage de disque</span></h1>
+            <p class="detail-lede">Développement d'un outil Python avec interface graphique pour analyser l'espace disque et localiser les fichiers les plus volumineux.</p>
+            <div class="comp-tags"><span class="comp-tag t3">AC13.01</span><span class="comp-tag t3">AC13.02</span><span class="comp-tag t3">AC13.03</span><span class="comp-tag t3">AC13.05</span></div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Contexte & objectifs</h2>
+                <div class="detail-prose"><p>Cette SAÉ consistait à développer un outil logiciel répondant à un besoin concret : aider un utilisateur à <strong>libérer de l'espace disque</strong> en identifiant les fichiers et dossiers les plus lourds, avec une restitution visuelle claire et un rapport exportable.</p></div>
+                <div class="todo-note"><strong>// À enrichir :</strong> ajoute le contexte précis (binôme/groupe, durée, cahier des charges) et tes objectifs personnels sur ce projet.</div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Déroulement & méthodologie</h2>
+                <ol class="steps">
+                    <li>Analyse du besoin et choix des technologies (<strong>Python</strong>, <strong>PyQt5</strong>).</li>
+                    <li><strong>Parcours récursif</strong> de l'arborescence du disque.</li>
+                    <li>Calcul et tri des tailles de fichiers et dossiers.</li>
+                    <li>Conception de l'<strong>interface graphique</strong> : onglets et graphiques.</li>
+                    <li>Génération de rapports au format <code>JSON</code>.</li>
+                    <li>Script <strong>PowerShell</strong> complémentaire pour l'intégration Windows.</li>
+                </ol>
+            </div>
+
+            <div class="detail-block">
+                <h2>Illustrations</h2>
+                <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="shot-placeholder"><div class="ico">🖼️</div><div class="txt">Interface principale (PyQt5)</div></div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="shot-placeholder"><div class="ico">📊</div><div class="txt">Graphique de répartition</div></div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="shot-placeholder"><div class="ico">🗂️</div><div class="txt">Rapport JSON généré</div></div>
+                </div>
+                </div>
+                <div class="todo-note"><strong>// Tes photos ici :</strong> remplace chaque tuile par <code>&lt;img src="images/ton-image.png" alt="..."&gt;</code> dans le bloc <code>screenshot-card</code> (dépose l'image dans <code>images/</code>). Le clic ouvre la lightbox.</div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Technologies</h2>
+                <ul class="tech-list">
+                    <li>Python</li>
+                    <li>PyQt5</li>
+                    <li>PowerShell</li>
+                    <li>JSON</li>
+                    <li>Récursivité</li>
+                    <li>Matplotlib</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                <div class="comp-detail-item d3">
+                    <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.01</span>
+                    <p>Utilisation du système et de ses outils pour parcourir et analyser une arborescence de fichiers.</p>
+                </div>
+                <div class="comp-detail-item d3">
+                    <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.02</span>
+                    <p>Lecture, écriture et correction d'un programme Python structuré en plusieurs modules.</p>
+                </div>
+                <div class="comp-detail-item d3">
+                    <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.03</span>
+                    <p>Traduction d'un algorithme de parcours récursif dans un langage et un environnement donnés.</p>
+                </div>
+                <div class="comp-detail-item d3">
+                    <span class="ac-code" style="background:var(--c3-soft);color:var(--c3)">AC13.05</span>
+                    <p>Choix d'un format de gestion de données (JSON) adapté à l'export des résultats.</p>
+                </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Retour d'expérience</h2>
+                <div class="todo-note"><strong>// À rédiger :</strong> qu'as-tu appris ? quelles difficultés as-tu rencontrées et comment les as-tu résolues ? que ferais-tu autrement ? C'est la partie que les jurys et recruteurs lisent le plus attentivement.</div>
+            </div>
+
+            <div class="detail-footer-nav">
+                <a href="projet-sae102.html" class="btn btn-ghost">← SAÉ 1.02</a>
+                <a href="projet-wifi.html" class="btn">Wi-Fi →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">✕</span>
+        <img src="" alt="" id="lightbox-img">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

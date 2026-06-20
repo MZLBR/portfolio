@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAÉ 21 — Déploiement Réseau (GNS3) — Louis Leibrich</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo hacker-text" data-value="&lt;Louis_LEIBRICH/&gt;">&lt;Louis_LEIBRICH/&gt;</div>
+            <ul class="nav-links">
+                <li><a href="index.html#hero">Accueil</a></li>
+                <li><a href="index.html#skills">Compétences</a></li>
+                <li><a href="index.html#projects">Projets</a></li>
+                <li><a href="homelab.html">Home Lab</a></li>
+                <li><a href="index.html#referentiel">Référentiel</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="detail-hero">
+            <div class="hero-bg-grid"></div>
+            <a href="index.html#projects" class="back-link">← Tous les projets</a>
+            <div class="detail-badges">
+                <span class="sae-badge">SAÉ 21</span>
+                <span class="detail-context">IUT de Colmar · BUT1 · S2</span>
+            </div>
+            <h1 class="detail-title">Déploiement réseau sous <span class="highlight">GNS3</span></h1>
+            <p class="detail-lede">Conception, segmentation IP avancée et sécurisation d'une infrastructure locale redondante avec équilibrage de charge Spanning-Tree.</p>
+            <div class="comp-tags"><span class="comp-tag t1">AC11.02</span><span class="comp-tag t1">AC11.03</span></div>
+        </section>
+
+        <section class="section" style="padding-top:20px;">
+            <div class="detail-block">
+                <h2>Contexte & objectifs</h2>
+                <div class="detail-prose">
+                    <p>Réalisé de manière individuelle au cours du second semestre, ce projet (SAÉ 21) avait pour objectif de consolider l'ensemble de nos compétences pratiques sur les équipements de <strong>niveau 2 (commutateurs) et de niveau 3 (routeurs)</strong>. L'exercice consistait à bâtir une infrastructure réseau locale d'entreprise virtualisée au sein de l'environnement de simulation <strong>GNS3</strong>.</p>
+                    <p>Le cahier des charges imposait une contrainte forte de partage d'espace d'adressage : à partir du bloc parent <code>192.168.32.0/20</code> affecté à notre groupe de TD, il fallait réaliser une segmentation fine pour isoler trois profils d'utilisateurs distincts (Administration, Développeurs, Administrateurs réseau), tout en intégrant des mécanismes indispensables de redondance et de sécurité de couche 2.</p>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Déroulement & méthodologie</h2>
+                <ol class="steps">
+                    <li>Calcul et planification de la segmentation du sous-réseau alloué à partir du bloc <code>192.168.32.0/20</code>.</li>
+                    <li>Construction et interconnexion de la topologie physique sous GNS3 (Routeurs Cisco, Commutateurs).</li>
+                    <li>Configuration et étiquetage des trois VLANs d'utilisateurs : <strong>VLAN 100 (Admin)</strong>, <strong>VLAN 200 (Dev)</strong> et <strong>VLAN 300 (Network)</strong>.</li>
+                    <li>Déplacement sécurisé et marquage explicite du VLAN natif sur le <strong>VLAN 999</strong> pour empêcher les attaques par saut de VLAN.</li>
+                    <li>Mise en œuvre du routage inter-VLAN centralisé sur le commutateur fédérateur (<code>commutateur-fed</code>).</li>
+                    <li>Optimisation des liaisons et tolérance aux pannes par la configuration du protocole <strong>Spanning-Tree (STP)</strong>, réalisant un équilibrage de charge sur 3 liens physiques actifs.</li>
+                </ol>
+            </div>
+
+            <div class="detail-block">
+                <h2>Architecture & Preuves</h2>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">L'architecture réseau repose sur un cœur de réseau redondant capable de basculer dynamiquement le trafic en cas de coupure physique d'un lien.</p>
+                
+                <div class="network-diagram" style="margin-bottom: 20px;">
+                    <h3 class="diagram-title">// Topologie Logique de Cœur de Réseau (GNS3)</h3>
+                    <div class="diagram-container">
+                        <div class="diagram-layer">
+                            <div class="diagram-node router">
+                                <span class="node-icon">🔄</span>
+                                <span class="node-label">Routeur L3</span>
+                                <span class="node-sub">Passerelle de la Succursale</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> Interconnexion</div>
+                        <div class="diagram-layer mid">
+                            <div class="diagram-node server">
+                                <span class="node-icon">🖧</span>
+                                <span class="node-label">Commutateur Fédérateur</span>
+                                <span class="node-sub">Routage Inter-VLAN & Racine STP</span>
+                            </div>
+                        </div>
+                        <div class="diagram-arrow down"><span>▼</span> 3 Liens Trunk (Équilibrage Spanning-Tree)</div>
+                        <div class="diagram-layer services-layer">
+                            <div class="diagram-node svc">
+                                <span class="node-icon">💼</span>
+                                <span class="node-label">Administration</span>
+                                <span class="node-sub">VLAN 100</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">💻</span>
+                                <span class="node-label">Développeurs</span>
+                                <span class="node-sub">VLAN 200</span>
+                            </div>
+                            <div class="diagram-node svc">
+                                <span class="node-icon">🛠️</span>
+                                <span class="node-label">Infrastructures</span>
+                                <span class="node-sub">VLAN 300</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Technologies utilisées</h2>
+                <ul class="tech-list">
+                    <li>GNS3</li>
+                    <li>Cisco IOS</li>
+                    <li>VLAN (100, 200, 300, 999)</li>
+                    <li>Routage Inter-VLAN</li>
+                    <li>Spanning-Tree Protocol (STP)</li>
+                    <li>Load Balancing</li>
+                    <li>Sécurisation de Couche 2</li>
+                </ul>
+            </div>
+
+            <div class="detail-block">
+                <h2>Compétences mobilisées</h2>
+                <div class="comp-detail">
+                    <div class="comp-detail-item d1">
+                        <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.02</span>
+                        <p>Comprendre l'architecture et les fondements des systèmes numériques, les principes des communications et de l'Internet via la segmentation logique du bloc IP de classe B.</p>
+                    </div>
+                    <div class="comp-detail-item d1">
+                        <span class="ac-code" style="background:var(--c1-soft);color:var(--c1)">AC11.03</span>
+                        <p>Configurer les fonctions de base du réseau local par la mise en place des commutations, de l'encapsulation de trunking et de la gestion de la redondance physique.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-block">
+                <h2>Retour d'expérience</h2>
+                <div class="detail-prose">
+                    <p>Ce projet en autonomie sous GNS3 m'a forcé à acquérir une grande rigueur de configuration. La manipulation du protocole Spanning-Tree a été une révélation technique : configurer manuellement les priorités de commutateurs pour désigner le commutateur racine (Root Bridge) et voir le blocage logique de certains ports pour éviter les boucles de commutation permet de concrétiser parfaitement la théorie des réseaux locaux d'entreprise.</p>
+                    <p><strong>Difficultés rencontrées & Solutions :</strong> La principale difficulté a résidé dans la configuration de l'équilibrage de charge multi-liens. Associer un VLAN spécifique à chaque lien Trunk physique demandait une parfaite cohérence des coûts de ports STP sur l'ensemble des commutateurs. Une simple coquille isolait instantanément un VLAN complet. J'ai résolu ce problème en schématisant méticuleusement les états attendus de chaque interface sur papier avant d'appliquer les blocs de commandes IOS.</p>
+                    <p><strong>Si c'était à refaire :</strong> Je préparerais des scripts de déploiement d'interfaces standardisés en amont afin de réduire les risques d'erreurs d'inattention lors de la réplication des configurations Trunk sur les différents commutateurs de la topologie.</p>
+                </div>
+            </div>
+
+            <div class="detail-footer-nav">
+                <a href="projet-wifi.html" class="btn btn-ghost">← Dispositif Wi-Fi</a>
+                <a href="Sae2.02.html" class="btn">Web Radio IoT →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text"><span class="highlight font-mono">&lt;Louis_LEIBRICH/&gt;</span> — Portfolio BUT R&T · 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
