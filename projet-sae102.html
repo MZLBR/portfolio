@@ -59,7 +59,7 @@
             <div class="detail-block">
                 <h2>Architecture & Adressage</h2>
                 <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">N'ayant plus les captures d'écran originales d'EVE-NG, j'ai reconstitué la topologie logique et le plan d'adressage (VLSM) basé sur mon sous-réseau attribué (<strong>172.20.101.0/24</strong>).</p>
-                
+
                 <div class="network-diagram" style="margin-bottom: 40px;">
                     <h3 class="diagram-title">// Topologie Logique EVE-NG</h3>
                     <div class="diagram-container">
@@ -187,9 +187,9 @@
                 <h2>Retour d'expérience</h2>
                 <div class="detail-prose">
                     <p>Cette SAÉ a été mon premier grand projet d'infrastructure virtuelle. J'ai particulièrement apprécié l'exercice du <strong>VLSM (Variable Length Subnet Mask)</strong>. Devoir optimiser le découpage du réseau <code>172.20.101.0/24</code> en fonction du nombre précis d'hôtes m'a permis de comprendre l'importance d'une planification rigoureuse sur papier avant même de toucher aux équipements.</p>
-                    
+
                     <p><strong>Difficultés rencontrées & Solutions :</strong> Au-delà de la configuration logique de l'encapsulation (dot1Q) pour le routage inter-VLAN, la principale difficulté a été d'ordre purement technique avec la plateforme de virtualisation. J'ai rencontré de nombreux bugs avec <strong>EVE-NG</strong> lors des phases d'importation et d'exportation des topologies (fichiers <code>.unl</code>) entre différents PC. Certains transferts provoquaient des pertes de liaisons ou corrompaient les configurations des équipements. Pour résoudre cela, nous avons dû mettre en place une méthode de travail stricte : centraliser le laboratoire principal sur une seule machine et sauvegarder systématiquement toutes les configurations Cisco (via les <code>show running-config</code>) dans des fichiers texte externes. En cas de bug d'importation, nous pouvions ainsi recréer les liens et réinjecter le code instantanément dans la CLI.</p>
-                    
+
                     <p><strong>Si c'était à refaire :</strong> Aujourd'hui, je documenterais et externaliserais chaque configuration d'équipement dans un script texte dès le premier jour. Cela évite de dépendre entièrement de la stabilité des mécanismes d'export de la plateforme lors du travail collaboratif ou du changement de poste informatique.</p>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-// ===== TYPEWRITER (page d'accueil uniquement) =====
 const subtitle = document.querySelector('.subtitle');
 if (subtitle) {
     const text = "> Étudiant en BUT Réseaux & Télécoms · passionné d'infrastructure · en recherche d'alternance 2026";
@@ -14,7 +13,6 @@ if (subtitle) {
     window.addEventListener('load', typeWriter);
 }
 
-// ===== HACKER TEXT EFFECT =====
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&/*<>";
 document.querySelectorAll('.hacker-text').forEach(element => {
     element.addEventListener('mouseover', event => {
@@ -35,7 +33,6 @@ document.querySelectorAll('.hacker-text').forEach(element => {
     });
 });
 
-// ===== SMOOTH SCROLL (ancres internes seulement) =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -48,7 +45,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ===== NAVBAR SCROLL =====
 const header = document.querySelector('header');
 if (header) {
     window.addEventListener('scroll', () => {
@@ -62,7 +58,6 @@ if (header) {
     });
 }
 
-// ===== MOBILE MENU =====
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.querySelector('.nav-links');
 if (hamburger && navLinks) {
@@ -72,7 +67,6 @@ if (hamburger && navLinks) {
     );
 }
 
-// ===== LIGHTBOX (galeries) =====
 const lightbox = document.getElementById('lightbox');
 if (lightbox) {
     const lightboxImg = document.getElementById('lightbox-img');
@@ -89,7 +83,6 @@ if (lightbox) {
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
 }
 
-// ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {

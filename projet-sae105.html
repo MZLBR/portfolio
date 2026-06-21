@@ -38,8 +38,13 @@
         <section class="section" style="padding-top:20px;">
             <div class="detail-block">
                 <h2>Contexte & objectifs</h2>
-                <div class="detail-prose"><p>Cette SAÉ consistait à développer un outil logiciel répondant à un besoin concret : aider un utilisateur à <strong>libérer de l'espace disque</strong> en identifiant les fichiers et dossiers les plus lourds, avec une restitution visuelle claire et un rapport exportable.</p></div>
-                <div class="todo-note"><strong>// À enrichir :</strong> ajoute le contexte précis (binôme/groupe, durée, cahier des charges) et tes objectifs personnels sur ce projet.</div>
+                <div class="detail-prose">
+                    <p>Cette SAÉ consistait à développer un outil logiciel répondant à un besoin concret : aider un utilisateur à <strong>libérer de l'espace disque</strong> en identifiant les fichiers et dossiers les plus lourds, avec une restitution visuelle claire et un rapport exportable.</p>
+
+                    <p>Réalisé en binôme sur une période de plusieurs semaines au cours du premier semestre à l'IUT de Colmar, ce projet répondait à un cahier des charges précis. L'application devait être modulaire, capable de scanner de manière récursive n'importe quel répertoire, de trier efficacement les données volumineuses, puis de générer un rapport structuré au format <code>JSON</code>. La restitution devait impérativement passer par une interface graphique intuitive développée avec <strong>PyQt5</strong>, intégrant des graphiques de répartition via <strong>Matplotlib</strong> pour faciliter la prise de décision de l'utilisateur.</p>
+
+                    <p>Mon objectif personnel sur ce projet était de maîtriser la mise en œuvre pratique de concepts algorithmiques fondamentaux (comme la <strong>récursivité</strong> pour le parcours d'arborescences), d'apprendre à concevoir une interface graphique logicielle complète et de comprendre comment faire interagir Python avec des outils d'administration système comme <strong>PowerShell</strong> sous Windows.</p>
+                </div>
             </div>
 
             <div class="detail-block">
@@ -57,17 +62,48 @@
             <div class="detail-block">
                 <h2>Illustrations</h2>
                 <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="shot-placeholder"><div class="ico">🖼️</div><div class="txt">Interface principale (PyQt5)</div></div>
+
+                    <div class="screenshot-card">
+                        <img src="images/sup.png" alt="Interface de suppression PyQt5" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Interface Principale</span>
+                            <span class="screenshot-stat">Outil de nettoyage PyQt5</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/graph.png" alt="Graphique de répartition de l'espace disque" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Analyse Visuelle</span>
+                            <span class="screenshot-stat">Graphique de répartition</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/legende.png" alt="Légende et détails de l'analyse" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Rapport Détaillé</span>
+                            <span class="screenshot-stat">Identification des gros fichiers</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/powershell.png" alt="Exécution du script PowerShell" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Scripting Système</span>
+                            <span class="screenshot-stat">Intégration PowerShell</span>
+                        </div>
+                    </div>
+
+                    <div class="screenshot-card">
+                        <img src="images/codepy.png" alt="Aperçu du code source Python" loading="lazy">
+                        <div class="screenshot-caption">
+                            <span class="screenshot-label">Développement</span>
+                            <span class="screenshot-stat">Logique de parcours en Python</span>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="screenshot-card">
-                    <div class="shot-placeholder"><div class="ico">📊</div><div class="txt">Graphique de répartition</div></div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="shot-placeholder"><div class="ico">🗂️</div><div class="txt">Rapport JSON généré</div></div>
-                </div>
-                </div>
-                <div class="todo-note"><strong>// Tes photos ici :</strong> remplace chaque tuile par <code>&lt;img src="images/ton-image.png" alt="..."&gt;</code> dans le bloc <code>screenshot-card</code> (dépose l'image dans <code>images/</code>). Le clic ouvre la lightbox.</div>
             </div>
 
             <div class="detail-block">
@@ -106,7 +142,13 @@
 
             <div class="detail-block">
                 <h2>Retour d'expérience</h2>
-                <div class="todo-note"><strong>// À rédiger :</strong> qu'as-tu appris ? quelles difficultés as-tu rencontrées et comment les as-tu résolues ? que ferais-tu autrement ? C'est la partie que les jurys et recruteurs lisent le plus attentivement.</div>
+                <div class="detail-prose">
+                    <p>Ce projet de premier semestre a été un excellent moyen de lier la logique de programmation pure à la réalité des systèmes d'exploitation. Concevoir une application de bout en bout, de l'algorithme de balayage jusqu'à l'interface utilisateur graphique, m'a permis d'acquérir une solide autonomie en développement Python et de comprendre l'importance de l'ergonomie d'un outil technique.</p>
+
+                    <p><strong>Difficultés rencontrées & Solutions :</strong> La principale difficulté technique est apparue lors du codage du parcours récursif de l'arborescence du disque. Lorsque l'algorithme tentait d'analyser certains répertoires système protégés ou verrouillés par Windows (comme <code>System Volume Information</code>), le programme plantait instantanément en levant des erreurs de permissions. Pour résoudre ce problème, j'ai mis en place une gestion stricte des exceptions (blocs <code>try-except</code>) permettant à l'outil d'ignorer proprement les dossiers inaccessibles et de poursuivre son calcul sans s'interrompre. De plus, la synchronisation des données triées avec l'affichage graphique de Matplotlib a nécessité une structuration rigoureuse de nos dictionnaires de données avant l'export final en <code>JSON</code>.</p>
+
+                    <p><strong>Si c'était à refaire :</strong> Si je devais recréer cet outil aujourd'hui, j'implémenterais l'utilisation des threads (via <code>QThread</code> de PyQt5) pour séparer complètement la logique de calcul du scan de l'arborescence et l'affichage de l'interface graphique. Cela aurait évité le léger effet de gel temporaire de la fenêtre de l'application pendant l'analyse des très gros volumes de stockage, offrant ainsi une expérience utilisateur beaucoup plus fluide.</p>
+                </div>
             </div>
 
             <div class="detail-footer-nav">

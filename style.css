@@ -1,4 +1,3 @@
-/* ===== VARIABLES GLOBALES ===== */
 :root {
     --bg-color: #0a0a0a;
     --bg-card: #111;
@@ -22,7 +21,6 @@ body {
     line-height: 1.6;
 }
 
-/* ===== NAVIGATION ===== */
 header {
     padding: 20px 50px;
     display: flex;
@@ -73,7 +71,6 @@ header {
     transition: all 0.3s;
 }
 
-/* ===== HERO ===== */
 #hero {
     min-height: 90vh;
     display: flex;
@@ -119,7 +116,6 @@ h1 {
     justify-content: center;
 }
 
-/* ===== BOUTONS ===== */
 .btn {
     padding: 12px 24px;
     border: 1px solid var(--accent-color);
@@ -149,7 +145,6 @@ h1 {
     box-shadow: none;
 }
 
-/* ===== SECTIONS ===== */
 .section {
     padding: 80px 20px;
     max-width: 1100px;
@@ -169,14 +164,12 @@ h1 {
     font-size: 1rem;
 }
 
-/* ===== GRILLES ===== */
 .skills-grid, .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
 }
 
-/* ===== CARDS GÉNÉRIQUES ===== */
 .skill-card, .project-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -204,7 +197,6 @@ h1 {
 
 .project-card p { color: #aaa; font-size: 0.95rem; margin-bottom: 20px; }
 
-/* ===== TECH TAGS ===== */
 .tech-list {
     list-style: none;
     display: flex;
@@ -223,7 +215,6 @@ h1 {
     border: 1px solid rgba(0,255,204,0.15);
 }
 
-/* ===== TIMELINE ===== */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -262,7 +253,6 @@ h1 {
 .timeline-item h3 { margin-bottom: 8px; font-size: 1.2rem; }
 .timeline-item p { color: #aaa; font-size: 0.95rem; }
 
-/* ===== HOME LAB — HARDWARE CARD ===== */
 .hardware-card {
     display: flex;
     align-items: center;
@@ -304,7 +294,6 @@ h1 {
 .stat-value.accent { color: var(--accent-color); }
 .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
 
-/* ===== HOME LAB — NETWORK DIAGRAM ===== */
 .network-diagram {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -380,7 +369,6 @@ h1 {
     opacity: 0.6;
 }
 
-/* ===== HOME LAB — SERVICES GRID ===== */
 .services-title {
     font-family: var(--font-mono);
     color: var(--accent-color);
@@ -465,7 +453,6 @@ h1 {
     font-size: 0.82rem;
 }
 
-/* ===== SCREENSHOTS GALLERY ===== */
 .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -521,7 +508,6 @@ h1 {
     color: var(--text-muted);
 }
 
-/* Lightbox */
 .lightbox {
     display: none;
     position: fixed;
@@ -556,7 +542,6 @@ h1 {
 
 .lightbox-close:hover { color: var(--accent-color); }
 
-/* ===== CONTACT ===== */
 .contact-links {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -588,7 +573,6 @@ h1 {
 .contact-label { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); }
 .contact-value { font-size: 0.9rem; color: var(--text-muted); }
 
-/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 30px 20px;
@@ -599,7 +583,6 @@ footer {
 .footer-text { color: var(--text-muted); font-size: 0.9rem; }
 .font-mono { font-family: var(--font-mono); }
 
-/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     header { padding: 15px 20px; }
 
@@ -636,17 +619,13 @@ footer {
     .services-layer { gap: 8px; }
     .diagram-node.svc { min-width: 60px; padding: 6px; }
 }
-/* ===================================================================
-   RÉFÉRENTIEL BUT — système de compétences (ajout)
-   3 domaines couleur : c1 Administrer / c2 Connecter / c3 Créer
-   =================================================================== */
+
 :root {
     --c1: #00ffcc;  --c1-soft: rgba(0, 255, 204, 0.10);  --c1-bord: rgba(0,255,204,0.22);
     --c2: #b48cff;  --c2-soft: rgba(180, 140, 255, 0.13); --c2-bord: rgba(180,140,255,0.28);
     --c3: #ffb454;  --c3-soft: rgba(255, 180, 84, 0.13);  --c3-bord: rgba(255,180,84,0.28);
 }
 
-/* Légende des domaines */
 .ref-legend {
     display: flex; flex-wrap: wrap; gap: 22px; justify-content: center; margin-bottom: 40px;
 }
@@ -656,7 +635,6 @@ footer {
 }
 .ref-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 
-/* Cartes du référentiel */
 .ref-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 22px;
 }
@@ -685,7 +663,6 @@ footer {
 .d2 .ac-code { background: var(--c2-soft); color: var(--c2); }
 .d3 .ac-code { background: var(--c3-soft); color: var(--c3); }
 
-/* Tags de compétences sur les projets et services */
 .comp-row { margin-top: 18px; }
 .comp-label {
     font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.14em;
@@ -704,11 +681,6 @@ footer {
 .comp-tag.t3 { background: var(--c3-soft); color: var(--c3); border-color: var(--c3-bord); }
 .comp-tag.t3::before { background: var(--c3); }
 
-/* ===================================================================
-   PAGES DÉTAIL (home lab + projets) + cartes cliquables
-   =================================================================== */
-
-/* Cartes cliquables sur l'accueil */
 .card-link { text-decoration: none; color: inherit; display: block; height: 100%; }
 .card-cta {
     display: inline-block; margin-top: 18px;
@@ -717,7 +689,6 @@ footer {
 }
 .card-link:hover .card-cta { transform: translateX(4px); }
 
-/* Hero de page détail */
 .detail-hero {
     max-width: 1100px; margin: 0 auto; position: relative; overflow: hidden;
     padding: 130px 20px 50px; text-align: left;
@@ -738,7 +709,6 @@ footer {
 .detail-title { font-size: 2.6rem; margin-bottom: 14px; line-height: 1.1; position: relative; z-index: 1; }
 .detail-lede { color: #bbb; font-size: 1.05rem; max-width: 70ch; margin-bottom: 22px; position: relative; z-index: 1; }
 
-/* Blocs de contenu */
 .detail-block { margin-bottom: 42px; }
 .detail-block h2 { font-size: 1.5rem; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
 .detail-block h2::before { content: "//"; font-family: var(--font-mono); color: var(--accent-color); font-size: 1.1rem; }
@@ -750,7 +720,6 @@ footer {
     padding: 1px 5px; border-radius: 3px; font-size: 0.85rem;
 }
 
-/* Encart "à compléter" */
 .todo-note {
     border: 1px dashed rgba(0,255,204,0.3); border-radius: 8px; padding: 14px 18px;
     background: rgba(0,255,204,0.03); color: var(--text-muted);
@@ -758,7 +727,6 @@ footer {
 }
 .todo-note strong { color: var(--accent-color); font-family: var(--font-mono); }
 
-/* Étapes numérotées */
 .steps { list-style: none; counter-reset: step; display: grid; gap: 16px; max-width: 78ch; }
 .steps li { position: relative; padding-left: 50px; color: #bbb; line-height: 1.65; }
 .steps li::before {
@@ -770,7 +738,6 @@ footer {
     display: flex; align-items: center; justify-content: center;
 }
 
-/* Tuiles de galerie vides (placeholders à remplacer par des images) */
 .shot-placeholder {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     height: 180px; color: var(--text-muted); gap: 8px;
@@ -779,7 +746,6 @@ footer {
 .shot-placeholder .ico { font-size: 1.7rem; opacity: 0.6; }
 .shot-placeholder .txt { font-family: var(--font-mono); font-size: 0.78rem; text-align: center; padding: 0 10px; }
 
-/* Compétences mobilisées — version explicative */
 .comp-detail { display: grid; gap: 12px; max-width: 82ch; }
 .comp-detail-item {
     display: flex; gap: 14px; align-items: flex-start;
@@ -792,13 +758,11 @@ footer {
 .comp-detail-item.d2 { border-left: 3px solid var(--c2); }
 .comp-detail-item.d3 { border-left: 3px solid var(--c3); }
 
-/* Navigation bas de page détail */
 .detail-footer-nav {
     display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
     border-top: 1px solid var(--border-color); padding-top: 30px; margin-top: 10px;
 }
 
-/* Accroche Home Lab sur l'accueil */
 .lab-teaser {
     display: flex; align-items: center; gap: 30px; flex-wrap: wrap;
     background: var(--bg-card); border: 1px solid var(--accent-color); border-radius: 10px;
